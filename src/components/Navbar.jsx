@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <nav className='bg-dark h-16 flex justify-between md:px-9 px-4 items-center'>
+    <nav className='h-16 relative flex justify-between sm:px-9 px-4 items-center'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         aria-hidden='true'
@@ -15,7 +15,7 @@ const Navbar = () => {
       <button className>
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          className='md:hidden h-10 w-10 text-primary '
+          className='sm:hidden h-10 w-10 text-primary '
           viewBox='0 0 24 24'
           stroke='currentColor'>
           <path
@@ -26,12 +26,8 @@ const Navbar = () => {
           />
         </svg>
       </button>
-      {/*
-      md:w-5/12
-      w-9/12
-      */}
-      <div className='hidden md:flex md:justify-between md:w-3/4 max-w-lg'>
-        <ul className='text-light flex justify-between md:w-80 max-w-md'>
+      <div className='hidden sm:flex sm:justify-between sm:w-3/4 max-w-lg'>
+        <ul className='text-light flex justify-between sm:w-80 max-w-md'>
           <li className='flex items-center'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -105,13 +101,45 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
-        <button className='text-light text-center px-2 py-1 hover:bg-primary border-primary font-bold border-2 rounded-md'>
+
+        <a
+          href='#'
+          className='flex items-center text-primary hover:text-light text-center px-2 py-1 hover:border-opacity-0 hover:bg-opacity-80 hover:bg-primary border-2 border-primary font-bold rounded-md transition ease-out duration-500'>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            className='h-5 w-5 pr-1'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'>
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={2}
+              d='M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4'
+            />
+          </svg>
+          <span>Resume</span>
+        </a>
+
+        {/* <button className='text-primary hover:text-light text-center w-20 px-3 py-1 hover:border-opacity-0 hover:bg-opacity-80 hover:bg-primary border-primary font-bold rounded-md transition ease-out duration-700 ring-2 ring-primary ring-opacity-80 '>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            className='h-4 w-4'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'>
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={2}
+              d='M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4'
+            />
+          </svg>
           Resume
-        </button>
+        </button> */}
       </div>
     </nav>
   );
 };
 
-// border-primary border-2 border-solid rounded-md
 export default Navbar;
