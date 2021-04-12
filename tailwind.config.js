@@ -4,11 +4,18 @@ module.exports = {
   theme: {
     colors: {
       dark: '#282846',
-      light: '#E5E5E5',
+      slate: '#E5E5E5',
+      light: '#CCD6F6',
       primary: '#FF9F1C',
       secondary: '#FAF0CA',
+      pale: '#f3f169',
     },
+
     extend: {
+      fill: ['hover', 'focus'],
+      backgroundImage: {
+        tictactoe: "url('https://i.imgur.com/O2yxB88.png')",
+      },
       animation: {
         fade: 'fade 1.5s ease-in-out infinite',
         move: 'move 1s ease-in-out infinite',
@@ -36,9 +43,13 @@ module.exports = {
       },
     },
   },
+
   variants: {
     extend: {
       borderWidth: ['hover', 'focus'],
+      blur: ['hover', 'focus'],
+      filter: ['hover', 'focus'],
+      zIndex: ['hover', 'active'],
     },
   },
   plugins: [],

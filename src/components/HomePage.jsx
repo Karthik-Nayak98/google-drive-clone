@@ -1,8 +1,10 @@
 import Typical from 'react-typical';
 
-const HomePage = () => {
+const Home = () => {
   return (
-    <section className='flex flex-col text-center items-center py-40 h-screen space-y-5'>
+    <section
+      className='space-y-16Y
+     flex flex-col text-center items-center py-40 h-screen space-y-5'>
       <header className='text-light  space-y-5'>
         <p className='text-2xl md:text-3xl'>Hello, I'm</p>
         <h1 className='font-medium tracking-wider text-5xl md:text-6xl uppercase'>
@@ -13,7 +15,7 @@ const HomePage = () => {
       <article className='text-center text-primary text-2xl md:text-3xl mt-3'>
         <span className=''>I am a </span>
         <Typical
-          steps={['Web Developer.', 2000, 'Open Sourcer.', 2000]}
+          steps={['Web Developer', 2000, 'Open Sourcer', 2000]}
           loop={Infinity}
           wrapper='strong'
         />
@@ -40,4 +42,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;
