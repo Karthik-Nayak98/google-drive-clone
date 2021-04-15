@@ -1,9 +1,10 @@
 import React from 'react';
-import Home from './components/HomePage';
-import About from './components/AboutPage';
+import Home from './pages/HomePage';
+import About from './pages/AboutPage';
 import Navbar from './components/Navbar';
-import Skills from './components/SkillsPage';
-import Project from './components/ProjectsPage';
+import Skills from './pages/SkillsPage';
+import Project from './pages/ProjectsPage';
+import Contact from './pages/ContactPage';
 import icons from './helper/icons';
 import Particles from 'react-particles-js';
 import ParticleConfig from './config/particleConfig';
@@ -20,6 +21,7 @@ function App() {
       <About />
       <Skills icons={icons} />
       <Project projects={projects} />
+      <Contact />
     </main>
   );
 }

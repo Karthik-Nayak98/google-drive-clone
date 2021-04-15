@@ -9,7 +9,7 @@ const About = () => {
       </h2>
       <div className='flex flex-col lg:flex-row items-center justify-center'>
         <img className='sm:w-64 m-4 w-56' src={image} alt='Karthik' />
-        <p className='m-3 text-light text-justify leading-7 text-md'>
+        <p className='m-3 text-light leading-7 text-md'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas
           architecto, ex eligendi quo in culpa veniam rerum cum delectus,
           accusantium velit quasi eum sequi repellat molestias praesentium alias

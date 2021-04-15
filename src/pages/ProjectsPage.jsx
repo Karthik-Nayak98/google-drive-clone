@@ -19,7 +19,9 @@ function Project(props) {
                 <h3 className='text-primary font-semibold text-2xl'>
                   {project.name}
                 </h3>
-                <p className='text-slate '>{project.description}</p>
+                <p className='text-slate font-semibold'>
+                  {project.description}
+                </p>
                 <span className='flex gap-2 items-center justify-center mt-5'>
                   <a href={project.github}>
                     <GITHUB />

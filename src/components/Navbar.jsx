@@ -1,5 +1,6 @@
 import LOGO from '../icons/logo';
-
+import Button from '../components/Button';
+import DOWNLOAD from '../icons/download';
 const Navbar = () => {
   return (
     <nav className='bg-opacity-95 shadow-lg h-16 w-full flex justify-between sm:px-9 px-4 items-center'>
@@ -93,8 +94,9 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
+        <Button icon={<DOWNLOAD />} name='Resume' />
 
-        <a
+        {/* <a
           href='#'
           className='flex items-center text-primary hover:text-light text-center px-2 py-1 hover:border-opacity-0 hover:bg-opacity-80 hover:bg-primary border-2 border-primary font-bold rounded-md transition ease-out duration-500'>
           <svg
@@ -111,7 +113,7 @@ const Navbar = () => {
             />
           </svg>
           <span>Resume</span>
-        </a>
+        </a> */}
 
         {/* <button className='text-primary hover:text-light text-center w-20 px-3 py-1 hover:border-opacity-0 hover:bg-opacity-80 hover:bg-primary border-primary font-bold rounded-md transition ease-out duration-700 ring-2 ring-primary ring-opacity-80 '>
           <svg
