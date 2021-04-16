@@ -5,10 +5,12 @@ import Navbar from './components/Navbar';
 import Skills from './pages/SkillsPage';
 import Project from './pages/ProjectsPage';
 import Contact from './pages/ContactPage';
+import Footer from './components/Footer';
 import icons from './helper/icons';
 import Particles from 'react-particles-js';
 import ParticleConfig from './config/particleConfig';
 import projects from './helper/project';
+import './style.css';
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
       <Skills icons={icons} />
       <Project projects={projects} />
       <Contact />
+      <Footer />
     </main>
   );
 }

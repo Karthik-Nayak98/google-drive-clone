@@ -1,8 +1,11 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
+      red: colors.red,
       dark: '#282846',
       slate: '#E5E5E5',
       light: '#CCD6F6',

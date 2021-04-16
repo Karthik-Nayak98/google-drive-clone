@@ -1,13 +1,12 @@
 import React from 'react';
 import GITHUB from '../icons/github';
 import LINK from '../icons/link';
+import Header from '../components/Header';
 
 function Project(props) {
   return (
     <section className='flex flex-col sm:justify-center items-center my-10 mx-4 sm:mx-16'>
-      <h2 className='text-3xl text-center text-primary sm:text-4xl font-semibold'>
-        Projects
-      </h2>
+      <Header name='Projects' />
       <section className='flex flex-wrap gap-6 justify-center my-8 cursor-pointer'>
         {props.projects.map((project) => (
           <article
@@ -24,7 +23,10 @@ function Project(props) {
                 </p>
                 <span className='flex gap-2 items-center justify-center mt-5'>
                   <a href={project.github}>
-                    <GITHUB />
+                    <GITHUB
+                      className='w-5 h-5 transform hover:scale-110 hover:text-secondary'
+                      fill='#E5E5E5'
+                    />
                   </a>
                   <a href={project.link}>
                     <LINK />
