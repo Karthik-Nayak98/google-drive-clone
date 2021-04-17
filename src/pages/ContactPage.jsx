@@ -4,7 +4,9 @@ import Send from '../icons/send';
 
 const Contact = () => {
   return (
-    <section className='flex flex-col justify-cemter items-center my-10 mx-3 sm:mx-4 md:mx-6 lg:mx-20'>
+    <section
+      id='contact'
+      className='flex flex-col justify-cemter items-center my-10 mx-3 sm:mx-4 md:mx-6 lg:mx-20'>
       <Header name='Contact' />
       <div className='flex flex-col lg:flex-row justify-between  items-center lg:justify-around m-4 gap-5 lg:gap-0 w-full'>
         <p className='text-slate text-center  w-full lg:w-3/12 max-w-xl mx-4 text-sm sm:text-base'>

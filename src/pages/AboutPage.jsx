@@ -4,7 +4,9 @@ import Header from '../components/Header';
 
 const About = () => {
   return (
-    <section className='flex flex-col sm:justify-center items-center my-10 mx-4 sm:mx-20'>
+    <section
+      id='about'
+      className='flex flex-col sm:justify-center items-center my-10 mx-4 sm:mx-20'>
       <Header name='About Me' />
       <div className='flex flex-col lg:flex-row items-center justify-center'>
         <img className='sm:w-64 m-4 w-56' src={image} alt='Karthik' />

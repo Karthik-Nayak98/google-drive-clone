@@ -3,6 +3,7 @@ import Typical from 'react-typical';
 const Home = () => {
   return (
     <section
+      id='home'
       className='space-y-16Y
      flex flex-col text-center items-center py-40 h-screen space-y-5'>
       <header className='text-light  space-y-5'>

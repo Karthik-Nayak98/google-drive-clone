@@ -1,6 +1,12 @@
 import LOGO from '../icons/logo';
 import Button from '../components/Button';
 import DOWNLOAD from '../icons/download';
+import { NavHashLink as Link } from 'react-router-hash-link';
+import Contact from '../icons/contact';
+import Work from '../icons/work';
+import Home from '../icons/home';
+import About from '../icons/about';
+
 const Navbar = () => {
   return (
     <nav className='bg-opacity-95 shadow-lg h-16 w-full flex justify-between sm:px-9 px-4 items-center'>
@@ -22,76 +28,28 @@ const Navbar = () => {
       <div className='hidden sm:flex sm:justify-between sm:w-3/4 max-w-lg'>
         <ul className='text-slate flex justify-between sm:w-80 max-w-md'>
           <li className='flex items-center'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-4 w-4 text-primary '
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'>
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'
-              />
-            </svg>
-            <a className='pl-1 ' href='#'>
+            <Home />
+            <Link className='pl-1' smooth to='#home'>
               Home
-            </a>
+            </Link>
           </li>
           <li className='flex items-center'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-4 w-4 text-primary'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'>
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z'
-              />
-            </svg>
-            <a className='pl-1' href='#'>
+            <About />
+            <Link className='pl-1' smooth to='#about'>
               About
-            </a>
+            </Link>
           </li>
           <li className='flex items-center'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-4 w-4 text-primary'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'>
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
-              />
-            </svg>
-            <a className='pl-1' href='#'>
+            <Work />
+            <Link className='pl-1' smooth to='#work'>
               Work
-            </a>
+            </Link>
           </li>
           <li className='flex items-center'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-4 w-4 text-primary'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'>
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
-              />
-            </svg>
-            <a className='pl-1' href='#'>
+            <Contact />
+            <Link className='pl-1' smooth to='#contact'>
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
         <Button icon={<DOWNLOAD />} name='Resume' />
