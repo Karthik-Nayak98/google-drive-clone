@@ -16,7 +16,14 @@ const Home = () => {
       <article className='text-center text-primary text-2xl md:text-3xl mt-3'>
         <span className=''>I am a </span>
         <Typical
-          steps={['Web Developer', 2000, 'Open Sourcer', 2000]}
+          steps={[
+            'Web Developer',
+            2000,
+            'Open Sourcer',
+            2000,
+            'Linux Enthusiast',
+            2000,
+          ]}
           loop={Infinity}
           wrapper='strong'
         />

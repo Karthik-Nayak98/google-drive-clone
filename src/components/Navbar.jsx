@@ -8,13 +8,27 @@ import Home from '../icons/home';
 import About from '../icons/about';
 
 const Navbar = () => {
+  const navbarHeight = 64;
+  const handleScroll = (e) => {
+    e.preventDefault();
+    const target = e.target.getAttribute('href');
+    const location = document.querySelector(target).offsetTop;
+
+    window.scrollTo({
+      left: 0,
+      top: location - navbarHeight, // Subracting the height of navbar
+    });
+  };
+
   return (
-    <nav className='bg-opacity-95 shadow-lg h-16 w-full flex justify-between sm:px-9 px-4 items-center'>
-      <LOGO />
+    <nav className='fixed bg-dark z-20 bg-opacity-95 top-0 shadow-lg h-16 w-full flex justify-between sm:px-9 px-4 items-center'>
+      <Link smooth to='#home'>
+        <LOGO />
+      </Link>
       <button>
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          className='sm:hidden h-10 w-10 text-primary '
+          className='sm:hidden h-9 w-9 text-primary'
           viewBox='0 0 24 24'
           stroke='currentColor'>
           <path
@@ -29,32 +43,51 @@ const Navbar = () => {
         <ul className='text-slate flex justify-between sm:w-80 max-w-md'>
           <li className='flex items-center'>
             <Home />
-            <Link className='pl-1' smooth to='#home'>
+            <a className='pl-1' href='#home' onClick={handleScroll}>
               Home
-            </Link>
+            </a>
+            {/* <Link className='pl-1' smooth to='#home'>
+              Home
+            </Link> */}
           </li>
           <li className='flex items-center'>
             <About />
-            <Link className='pl-1' smooth to='#about'>
+            <a className='pl-1' href='#about' onClick={handleScroll}>
               About
-            </Link>
+            </a>
+            {/* <Link className='pl-1' smooth to='#about'>
+              About
+            </Link> */}
           </li>
           <li className='flex items-center'>
             <Work />
-            <Link className='pl-1' smooth to='#work'>
+            <a className='pl-1' href='#work' onClick={handleScroll}>
               Work
-            </Link>
+            </a>
+            {/* <Link className='pl-1' smooth to='#work'>
+              Work
+            </Link> */}
           </li>
           <li className='flex items-center'>
             <Contact />
-            <Link className='pl-1' smooth to='#contact'>
+            <a className='pl-1' href='#contact' onClick={handleScroll}>
               Contact
-            </Link>
+            </a>
+            {/* <Link className='pl-1' smooth to='#contact'>
+              Contact
+            </Link> */}
           </li>
         </ul>
         <Button icon={<DOWNLOAD />} name='Resume' />
+      </div>
+    </nav>
+  );
+};
 
-        {/* <a
+export default Navbar;
+
+// {
+/* <a
           href='#'
           className='flex items-center text-primary hover:text-light text-center px-2 py-1 hover:border-opacity-0 hover:bg-opacity-80 hover:bg-primary border-2 border-primary font-bold rounded-md transition ease-out duration-500'>
           <svg
@@ -71,9 +104,11 @@ const Navbar = () => {
             />
           </svg>
           <span>Resume</span>
-        </a> */}
+        </a> */
+//}
 
-        {/* <button className='text-primary hover:text-light text-center w-20 px-3 py-1 hover:border-opacity-0 hover:bg-opacity-80 hover:bg-primary border-primary font-bold rounded-md transition ease-out duration-700 ring-2 ring-primary ring-opacity-80 '>
+//{
+/* <button className='text-primary hover:text-light text-center w-20 px-3 py-1 hover:border-opacity-0 hover:bg-opacity-80 hover:bg-primary border-primary font-bold rounded-md transition ease-out duration-700 ring-2 ring-primary ring-opacity-80 '>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             className='h-4 w-4'
@@ -88,10 +123,5 @@ const Navbar = () => {
             />
           </svg>
           Resume
-        </button> */}
-      </div>
-    </nav>
-  );
-};
-
-export default Navbar;
+        </button> */
+//}
