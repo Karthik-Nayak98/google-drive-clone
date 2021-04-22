@@ -7,7 +7,7 @@ function Project(props) {
   return (
     <section
       id='work'
-      className='flex flex-col sm:justify-center items-center my-12 mx-4 sm:mx-16'>
+      className='flex flex-col sm:justify-center items-center my-12 border-2 mx-4 sm:mx-16'>
       <Header name='Projects' />
       <section className='flex flex-wrap gap-6 justify-center my-8 cursor-pointer'>
         {props.projects.map((project) => (

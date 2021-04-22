@@ -6,7 +6,7 @@ import GITHUB from '../icons/github';
 
 function Footer() {
   return (
-    <section className='flex flex-col justify-cemter items-center py-3 mx-3 sm:mx-4 md:mx-6 lg:mx-20'>
+    <section className='flex flex-col justify-cemter items-center mx-3 sm:mx-4 md:mx-6 lg:mx-20'>
       <div className='flex gap-3 '>
         <a href='https://twitter.com/KarthikNayak98'>
           <Twitter />

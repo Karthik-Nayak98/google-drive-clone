@@ -20,6 +20,13 @@ const projects = [
     description: 'Made with React and Firebase',
     img: 'https://i.imgur.com/AImsdbo.png',
   },
+  {
+    name: 'Portfolio',
+    github: 'https://github.com/Karthik-Nayak98/portfolio',
+    link: '',
+    description: 'Made with React and Tailwind',
+    img: 'https://i.imgur.com/AImsdbo.png',
+  },
 ];
 
 export default projects;

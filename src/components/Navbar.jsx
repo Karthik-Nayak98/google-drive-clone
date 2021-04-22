@@ -22,9 +22,12 @@ const Navbar = () => {
 
   return (
     <nav className='fixed bg-dark z-20 bg-opacity-95 top-0 shadow-lg h-16 w-full flex justify-between sm:px-9 px-4 items-center'>
-      <Link smooth to='#home'>
+      {/* <Link smooth to='#home'> */}
+      <a href='#home'>
         <LOGO />
-      </Link>
+      </a>
+
+      {/* </Link> */}
       <button>
         <svg
           xmlns='http://www.w3.org/2000/svg'
