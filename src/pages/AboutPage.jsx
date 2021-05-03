@@ -10,20 +10,21 @@ const About = () => {
       <Header name='About Me' />
       <div className='flex flex-col lg:flex-row items-center justify-center'>
         <img className='sm:w-64 m-4 w-56' src={image} alt='Karthik' />
-        <p className='m-3 text-light leading-7 text-md'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas
-          architecto, ex eligendi quo in culpa veniam rerum cum delectus,
-          accusantium velit quasi eum sequi repellat molestias praesentium alias
-          eaque animi! Illum dolore dignissimos, nam, maiores accusantium,
-          debitis adipisci corrupti nulla sint consectetur aliquam earum modi
-          minima veritatis non autem necessitatibus id delectus aut. Eos esse et
-          officiis consectetur fuga, quae delectus labore itaque sed ab
-          veritatis necessitatibus dolorem iste quidem accusamus fugit
-          asperiores commodi hic maxime velit, aut libero. Dolores optio nihil
-          reprehenderit facilis eum sequi illo repellat, maiores, minima est
-          placeat architecto asperiores excepturi nam dolorem, obcaecati
-          eligendi porro?
-        </p>
+        <div className='m-3 text-light leading-7 text-sm'>
+          <p>
+            Hello! I am
+            <em>
+              <strong className='text-primary'> Karthik Nayak</strong>
+            </em>
+            , a web developer based from India. My aim is writing clean,
+            efficient and maintainable code. I currently work in
+            <strong> Oracle Cloud</strong> as a Programmer Analyst.
+          </p>
+          <p>
+            My interest for coding started back in 2016 when I wrote some small
+            programs in C. Gradually, I got interest in Web Development.
+          </p>
+        </div>
       </div>
     </section>
   );

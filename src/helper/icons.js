@@ -4,6 +4,10 @@ import REACT from '../icons/react';
 import JAVASCRIPT from '../icons/javascript';
 import TAILWIND from '../icons/tailwindcss';
 import GIT from '../icons/git';
+import Home from '../icons/home';
+import About from '../icons/about';
+import Contact from '../icons/contact';
+import Work from '../icons/work';
 
 const icons = [
   {
@@ -29,6 +33,29 @@ const icons = [
   {
     name: 'git',
     img: <GIT />,
+  },
+];
+
+export const navIcons = [
+  {
+    name: 'Home',
+    img: <Home />,
+    link: '#home',
+  },
+  {
+    name: 'About',
+    img: <About />,
+    link: '#about',
+  },
+  {
+    name: 'Work',
+    img: <Work />,
+    link: '#work',
+  },
+  {
+    name: 'Contact',
+    img: <Contact />,
+    link: '#contact',
   },
 ];
 

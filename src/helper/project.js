@@ -25,7 +25,7 @@ const projects = [
     github: 'https://github.com/Karthik-Nayak98/portfolio',
     link: '',
     description: 'Made with React and Tailwind',
-    img: 'https://i.imgur.com/AImsdbo.png',
+    img: 'https://i.imgur.com/FXK6yNd.png',
   },
 ];
 

@@ -19,3 +19,20 @@ max-width: 100%;
   max-height: 100vh;
   /* overflow: none;
 } */
+
+nav {
+  background-color: #282846;
+}
+
+li:hover,
+li:focus {
+  background-color: #1f1f36;
+}
+
+input:focus {
+  border-color: #eda84a;
+}
+
+/* .navbar-layout {
+  display: hidden !important;
+} */

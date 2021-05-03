@@ -1,12 +1,25 @@
 import Typical from 'react-typical';
 
 const Home = () => {
+  const handleClick = (e) => {
+    const navbarHeight = 64;
+    e.preventDefault();
+    const target = document
+      .querySelector('[data-value=scroll]')
+      .getAttribute('href');
+    const location = document.querySelector(target).offsetTop;
+
+    window.scrollTo({
+      left: 0,
+      top: location - navbarHeight, // Subracting the height of navbar
+    });
+  };
+
   return (
     <section
       id='home'
-      className='space-y-16Y
-     flex flex-col text-center items-center py-40 h-screen space-y-5'>
-      <header className='text-light  space-y-5'>
+      className='space-y-16 flex flex-col text-center items-center py-40 h-screen space-y-5'>
+      <header className='text-light space-y-5'>
         <p className='text-2xl md:text-3xl'>Hello, I'm</p>
         <h1 className='font-medium tracking-wider text-5xl md:text-6xl uppercase'>
           Karthik Nayak
@@ -21,7 +34,7 @@ const Home = () => {
             2000,
             'Open Sourcer',
             2000,
-            'Linux Enthusiast',
+            'Linux Lover',
             2000,
           ]}
           loop={Infinity}
@@ -29,23 +42,28 @@ const Home = () => {
         />
       </article>
 
-      <div className='py-10 flex flex-col justify-center items-center hover:opacity-80 cursor-pointer'>
-        <span className='w-6 h-10 border-secondary border-2 rounded-3xl relative flex justify-center'>
+      <a
+        href='#about'
+        onClick={handleClick}
+        className=' lg:py-12 flex flex-col justify-center items-center hover:opacity-80 cursor-pointer'
+        data-value='scroll'>
+        <span
+          className='w-6 h-10 border-secondary border-2 rounded-3xl relative flex justify-center'
+          data-value='scroll'>
           <span className='bg-secondary w-1 h-1 rounded-full animate-fade absolute top-2'></span>
         </span>
 
-        <span className='flex justify-center -space-x-2'>
+        <span className='flex justify-center -space-x-2' data-value='scroll'>
           <span className='w-0.5 h-3 my-3 bg-secondary border-secondary animate-move'></span>
           <span className='w-0.5 h-3 my-3  bg-secondary border-secondary animate-beat'></span>
         </span>
-        <span className='flex justify-center -space-x-2 -my-7'>
+        <span
+          className='flex justify-center -space-x-2 -my-7'
+          data-value='scroll'>
           <span className='w-0.5 h-3 my-3 bg-secondary border-secondary animate-move'></span>
           <span className='w-0.5 h-3 my-3  bg-secondary border-secondary animate-beat'></span>
         </span>
-        {/* <span className='text-secondary text-xs my-3 animate-pulse'>
-          Scroll down
-        </span> */}
-      </div>
+      </a>
     </section>
   );
 };
