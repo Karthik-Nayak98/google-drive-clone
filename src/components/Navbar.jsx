@@ -1,32 +1,19 @@
 import LOGO from '../icons/logo';
 import Button from '../components/Button';
 import DOWNLOAD from '../icons/download';
-// import { NavHashLink as Link } from 'react-router-hash-link';
+import { NavHashLink as Link } from 'react-router-hash-link';
 import { navIcons } from '../helper/icons';
+import scrollWithOffset from '../helper/scroll';
 
 const Navbar = () => {
-  const navbarHeight = 64;
   const element = document.querySelector('.nav-element');
-  const handleScroll = (e) => {
-    e.preventDefault();
-    const target = e.target.getAttribute('href');
-    const location = document.querySelector(target).offsetTop;
-
-    window.scrollTo({
-      left: 0,
-      top: location - navbarHeight, // Subtracting the height of navbar
-    });
-
-    if (window.innerWidth < window.innerHeight)
-      element.classList.toggle('hidden');
-  };
-
   const handleClick = () => {
+    console.log(element.classList);
     element.classList.toggle('hidden');
   };
 
   return (
-    <nav className='fixed flex flex-wrap items-center justify-between z-20 bg-opacity-90 top-0 shadow-lg sm:px-9 px-4 py-2 w-full'>
+    <nav className='fixed flex flex-wrap items-center justify-between z-20 bg-opacity-90 shadow-lg sm:px-9 px-4 py-2 w-full'>
       <a href='#home'>
         <LOGO />
       </a>
@@ -47,11 +34,20 @@ const Navbar = () => {
       <div className='nav-element hidden sm:flex flex-grow justify-between sm:w-4/5 max-w-xl w-full'>
         <ul className='text-slate flex flex-col sm:flex-row justify-between sm:w-80 md:w-96 max-w-xl'>
           {navIcons.map((icons) => (
-            <li className='inline-flex flex-grow hover:text-light rounded items-center px-2 py-2'>
+            <li
+              key={icons.name}
+              className='inline-flex flex-grow hover:text-light rounded items-center px-2 py-2  border-primary'>
               {icons.img}
-              <a className='pl-1' href={icons.link} onClick={handleScroll}>
+              <Link
+                className='pl-1'
+                to={icons.link}
+                smooth
+                scroll={scrollWithOffset}>
                 {icons.name}
-              </a>
+              </Link>
+              {/* <a className='pl-1' href={icons.link} onClick={handleScroll}>
+                {icons.name}
+              </a> */}
             </li>
           ))}
         </ul>

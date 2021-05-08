@@ -10,7 +10,7 @@ const About = () => {
       <Header name='About Me' />
       <div className='flex flex-col lg:flex-row items-center justify-center'>
         <img className='sm:w-64 m-4 w-56' src={image} alt='Karthik' />
-        <div className='m-3 text-light leading-7 text-sm'>
+        <div className='m-3 text-light leading-7 text-sm text-center sm:text-left'>
           <p>
             Hello! I am
             <em>
@@ -18,12 +18,13 @@ const About = () => {
             </em>
             , a web developer based from India. My aim is writing clean,
             efficient and maintainable code. I currently work in
-            <strong> Oracle Cloud</strong> as a Programmer Analyst.
+            <strong className='text-primary'> Oracle Cloud</strong> as a
+            <strong className='text-primary'> Programmer Analyst</strong>. I got
+            the taste of programming in 2016 when I started to write some small
+            programs using C. Gradually, I developed interest in Web Development
+            which still continues.
           </p>
-          <p>
-            My interest for coding started back in 2016 when I wrote some small
-            programs in C. Gradually, I got interest in Web Development.
-          </p>
+          <p>I spend my spare time by reading books or listening to music.</p>
         </div>
       </div>
     </section>

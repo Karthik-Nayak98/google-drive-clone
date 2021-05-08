@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import emailjs from 'emailjs-com';
 import Header from '../components/Header';
 import Send from '../icons/send';
 
 const Contact = () => {
-  const [isSubmitted, onisSubmitted] = useState(false);
+  const [isSubmitted, onIsSubmitted] = useState(false);
+  const [isError, onisError] = useState(false);
+  const [formEmpty, isformEmpty] = useState(true);
+
   const [values, setState] = useState({
     name: '',
     email: '',
@@ -27,14 +30,10 @@ const Contact = () => {
   });
 
   const handleBlur = (field) => (event) => {
-    // console.log(`Onblur on the field ${field}`);
     setTouched({
       ...touched,
       [field]: true,
     });
-    // setError(validate(values));
-    // console.log(error);
-    // setError(error);
   };
 
   function handleChange(event) {
@@ -45,12 +44,8 @@ const Contact = () => {
     });
   }
 
-  useEffect(() => {
-    // validate();
-  });
-
-  function validate() {
-    const result = /^[A-Za-z]{1}[a-zA-Z0-9_+%$.]@[a-z]+\.[a-z]{2,}$/i.test(
+  const validate = useCallback(() => {
+    const result = /^[A-Za-z]{1}[a-zA-Z0-9_+%$.]+@[a-z]+\.[a-z]{2,}$/i.test(
       values.email
     );
 
@@ -63,45 +58,73 @@ const Contact = () => {
 
     if (touched.name && !values.name)
       error.nameError = 'Please enter your name';
+
     if (touched.email && !values.email)
       error.emailError = 'Please enter your email';
     else if (touched.email && !result)
       error.emailError = 'Please enter a valid email';
+
     if (touched.subject && !values.subject)
       error.subjectError = 'Please enter your subject';
+
     if (touched.message && !values.message)
       error.messageError = 'Please write some message';
+    // setError(error);
+    return error;
+  }, [touched, values]);
+
+  useEffect(() => {
+    let error = validate();
     setError(error);
-  }
+  }, [touched, validate]);
 
   function handleSubmit(event) {
     event.preventDefault();
-    onisSubmitted(true);
 
-    emailjs
-      .sendForm(
-        'service_k6uryid',
-        'template_e7bm0ua',
-        event.target,
-        'user_A9hZY5UQGb8pWLkIOvRDn'
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-    // setError(validate(values));
-    setState({ name: '', email: '', subject: '', message: '' });
+    if (!values.name || !values.email || !values.message || !values.subject) {
+      console.log('fields Empty');
+      isformEmpty(true);
+    } else {
+      console.log('fields filled');
+      isformEmpty(false);
+    }
+
+    if (
+      !error.nameError ||
+      !error.emailError ||
+      !error.subjectError ||
+      !error.messageError
+    ) {
+      onisError(true);
+      console.log('No Errors');
+      // emailjs
+      //   .sendForm(
+      //     'service_k6uryid',
+      //     'template_e7bm0ua',
+      //     event.target,
+      //     'user_A9hZY5UQGb8pWLkIOvRDn'
+      //   )
+      //   .then(
+      //     (result) => {
+      //       console.log(result.text);
+      //     },
+      //     (error) => {
+      //       console.log(error.text);
+      //     }
+      //   );
+      // isformEmptyed(true)
+      // setState({ name: '', email: '', subject: '', message: '' });
+    } else {
+      onisError(false);
+      console.log('Errors');
+    }
   }
 
   return (
     <section
       id='contact'
       className='flex flex-col justify-cemter items-center my-9 mx-3 sm:mx-4 md:mx-6 lg:mx-20'>
-      <Header name='Contact' />
+      <Header name='Contact' id='contact' />
       <div className='flex flex-col lg:flex-row justify-between  items-center lg:justify-around m-4 gap-5 lg:gap-0 w-full'>
         <div className='w-full lg:w-3/12 max-w-xl mx-4 text-sm sm:text-base text-center'>
           <h2 className='text-primary font-semibold text-xl mb-2'>
@@ -116,18 +139,27 @@ const Contact = () => {
         <form
           onSubmit={handleSubmit}
           className='flex flex-col gap-1 justify-center w-full lg:w-8/12 max-w-2xl md:justify-around m-2'>
-          {isSubmitted ? (
+          {isError && !formEmpty ? (
             <p style={{ color: '#7FFF00' }} className='text-xs text-center'>
               Message Sent!
             </p>
-          ) : null}
+          ) : (
+            ''
+          )}
+          {formEmpty && !isError ? (
+            <p className='text-red-500 text-xs text-center'>
+              Please fill all the fields?
+            </p>
+          ) : (
+            ''
+          )}
           <div className='flex flex-col lg:flex-row justify-between lg:justify-start gap-1 lg:gap-5 w-full'>
             <div className='lg:w-1/2'>
               <label className='text-slate text-xs tracking-wider capitalize block my-2'>
                 name:
               </label>
               <input
-                className='text-xs border-primary border outline-none p-2 w-full rounded bg-dark text-light focus:border-pale'
+                className='text-xs border-primary border outline-none p-2 w-full rounded bg-dark text-light'
                 type='text'
                 name='name'
                 autoComplete='off'

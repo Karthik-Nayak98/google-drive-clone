@@ -1,20 +1,8 @@
+import { NavHashLink as Link } from 'react-router-hash-link';
 import Typical from 'react-typical';
+import scrollWithOffset from '../helper/scroll';
 
 const Home = () => {
-  const handleClick = (e) => {
-    const navbarHeight = 64;
-    e.preventDefault();
-    const target = document
-      .querySelector('[data-value=scroll]')
-      .getAttribute('href');
-    const location = document.querySelector(target).offsetTop;
-
-    window.scrollTo({
-      left: 0,
-      top: location - navbarHeight, // Subracting the height of navbar
-    });
-  };
-
   return (
     <section
       id='home'
@@ -42,11 +30,7 @@ const Home = () => {
         />
       </article>
 
-      <a
-        href='#about'
-        onClick={handleClick}
-        className=' lg:py-12 flex flex-col justify-center items-center hover:opacity-80 cursor-pointer'
-        data-value='scroll'>
+      <Link smooth to='#about' scroll={scrollWithOffset}>
         <span
           className='w-6 h-10 border-secondary border-2 rounded-3xl relative flex justify-center'
           data-value='scroll'>
@@ -63,9 +47,15 @@ const Home = () => {
           <span className='w-0.5 h-3 my-3 bg-secondary border-secondary animate-move'></span>
           <span className='w-0.5 h-3 my-3  bg-secondary border-secondary animate-beat'></span>
         </span>
-      </a>
+      </Link>
     </section>
   );
 };
 
 export default Home;
+
+// <a
+//       href='#about'
+//       onClick={handleClick}
+//       className='lg:py-12 flex flex-col justify-center items-center hover:opacity-80 cursor-pointer'
+//       data-value='scroll'></a>
