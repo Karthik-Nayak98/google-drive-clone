@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Home from './pages/HomePage';
 import About from './pages/AboutPage';
 import Navbar from './components/Navbar';
@@ -13,8 +13,27 @@ import projects from './helper/project';
 import './style.css';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  function fakePromise() {
+    return new Promise((resolve) => setTimeout(resolve, 2000));
+  }
+  useEffect(() => {
+    fakePromise().then(() => {
+      const loader = document.querySelector('.loading');
+      if (loader) {
+        loader.remove();
+        setLoading(!loading);
+      }
+    });
+  });
+
+  if (loading) {
+    return null;
+  }
+
   return (
-    <main className='bg-dark font-mono'>
+    <main className='rootComponent bg-dark font-mono'>
       <Navbar />
       <div className='absolute'>
         <Particles height='100vh' width='100vw' params={ParticleConfig} />

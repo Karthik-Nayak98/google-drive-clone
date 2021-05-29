@@ -36,7 +36,7 @@ const icons = [
   },
 ];
 
-export const navIcons = [
+export const navList = [
   {
     name: 'Home',
     img: <Home />,

@@ -1,20 +1,59 @@
 import { NavHashLink as Link } from 'react-router-hash-link';
 import Typical from 'react-typical';
 import scrollWithOffset from '../helper/scroll';
+import { motion } from 'framer-motion';
 
 const Home = () => {
+  const homeVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: 'beforeChildren',
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+  const homeItemVariants = {
+    hidden: {
+      y: 100,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      delay: 1,
+      opacity: 1,
+      transition: { duration: 1 },
+    },
+  };
   return (
-    <section
+    <motion.section
       id='home'
-      className='space-y-16 flex flex-col text-center items-center py-40 h-screen space-y-5'>
-      <header className='text-light space-y-5'>
-        <p className='text-2xl md:text-3xl'>Hello, I'm</p>
-        <h1 className='font-medium tracking-wider text-5xl md:text-6xl uppercase'>
+      className='space-y-16 flex flex-col text-center items-center py-40 h-screen space-y-5'
+      variants={homeVariants}
+      initial='hidden'
+      animate='visible'>
+      <motion.header
+        className='text-light space-y-5'
+        variants={homeItemVariants}
+        initial='hidden'
+        animate='visible'>
+        <motion.p className='text-2xl md:text-3xl' variants={homeItemVariants}>
+          Hello, I'm
+        </motion.p>
+        <motion.h1
+          className='font-medium tracking-wider text-5xl md:text-6xl uppercase'
+          variants={homeItemVariants}>
           Karthik Nayak
-        </h1>
-      </header>
+        </motion.h1>
+      </motion.header>
 
-      <article className='text-center text-primary text-2xl md:text-3xl mt-3'>
+      <motion.article
+        className='text-center text-primary text-2xl md:text-3xl mt-3'
+        variants={homeItemVariants}>
         <span className=''>I am a </span>
         <Typical
           steps={[
@@ -28,9 +67,13 @@ const Home = () => {
           loop={Infinity}
           wrapper='strong'
         />
-      </article>
+      </motion.article>
 
-      <Link smooth to='#about' scroll={scrollWithOffset}>
+      <Link
+        smooth
+        to='#about'
+        scroll={scrollWithOffset}
+        variants={homeItemVariants}>
         <span
           className='w-6 h-10 border-secondary border-2 rounded-3xl relative flex justify-center'
           data-value='scroll'>
@@ -48,7 +91,7 @@ const Home = () => {
           <span className='w-0.5 h-3 my-3  bg-secondary border-secondary animate-beat'></span>
         </span>
       </Link>
-    </section>
+    </motion.section>
   );
 };
 

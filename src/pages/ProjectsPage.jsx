@@ -1,22 +1,52 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import GITHUB from '../icons/github';
 import LINK from '../icons/link';
 import Header from '../components/Header';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 function Project(props) {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    threshold: 0,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start((index) => ({
+        y: 0,
+        opacity: 1,
+        transition: { transition: 1, delay: (index + 2) * 0.2 },
+      }));
+    }
+  }, [controls, inView]);
+
+  const revealVariant = {
+    hidden: {
+      opacity: 0,
+      y: 100,
+    },
+  };
+
   return (
     <section
       id='work'
       className='flex flex-col sm:justify-center items-center my-12 mx-4 sm:mx-16'>
       <Header name='Projects' />
-      <section className='flex flex-wrap gap-6 justify-center my-8 cursor-pointer'>
-        {props.projects.map((project) => (
-          <article
-            key={project.link}
-            className='relative shadow-2xl transition ease-in duration-300 w-72 h-80 transform hover:scale-105'>
-            <div className='absolute inset-0 z-10 flex transition duration-200 ease-in opacity-0 hover:opacity-100'>
+      <motion.section
+        className='flex flex-wrap gap-6 justify-center my-8 cursor-pointer'
+        ref={ref}>
+        {props.projects.map((project, index) => (
+          <motion.article
+            key={`project-${index}`}
+            className='relative shadow-2xl transition ease-in duration-300 w-72 h-80 transform hover:scale-105 rounded-lg'
+            variants={revealVariant}
+            initial='hidden'
+            custom={index}
+            animate={controls}>
+            <div className='absolute inset-0 z-10 flex transition duration-200 ease-in opacity-0 hover:opacity-100 rounded-lg'>
               <div className='absolute inset-0 bg-dark opacity-80'></div>
-              <div className='mx-2 text-slate z-10 self-center text-center uppercase tracking-widest text-sm'>
+              <div className='mx-2 text-slate z-10 self-center text-center uppercase tracking-widest text-sm rounded-lg'>
                 <h3 className='text-primary font-semibold text-2xl'>
                   {project.name}
                 </h3>
@@ -41,9 +71,9 @@ function Project(props) {
               src={project.img}
               alt={project.name}
             />
-          </article>
+          </motion.article>
         ))}
-      </section>
+      </motion.section>
     </section>
   );
 }
